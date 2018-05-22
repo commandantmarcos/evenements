@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Evenements</string>
+    <string name="detailsStagiaireTitre">Details Stagiaire</string>
+    <string name="detailsStagiaireLabelNom">Nom :</string>
+    <string name="detailsStagiaireLabelPrenom">Prenom :</string>
+    <string name="detailsStagiaireLabelAge">Age :</string>
+    <string name="detailsStagiaireLabelMail">Mail :</string>
+    <string name="detailsStagiaireLabelTel">Tel :</string>
+    <string name="detailsStagiaireLabelSession">Session :</string>
+    <string name="detailsStagiaireLabelFormation">Formation :</string>
 </resources>
