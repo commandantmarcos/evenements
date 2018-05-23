@@ -6,12 +6,12 @@ public class Stagiaire {
     private int id;
     private String nom;
     private String formation;
-    private Date session;
+    private String session;
     private String telephone;
     private String mail;
     private String url;
 
-    public Stagiaire(int id, String nom, String formation, Date session, String telephone, String mail, String url) {
+    public Stagiaire(int id, String nom, String formation, String session, String telephone, String mail, String url) {
         this.id = id;
         this.nom = nom;
         this.formation = formation;
@@ -19,6 +19,10 @@ public class Stagiaire {
         this.telephone = telephone;
         this.mail = mail;
         this.url = url;
+    }
+    public Stagiaire()
+    {
+
     }
     public int getId() {
         return id;
@@ -44,11 +48,11 @@ public class Stagiaire {
         this.formation = formation;
     }
 
-    public Date getSession() {
+    public String getSession() {
         return session;
     }
 
-    public void setSession(Date session) {
+    public void setSession(String session) {
         this.session = session;
     }
 
