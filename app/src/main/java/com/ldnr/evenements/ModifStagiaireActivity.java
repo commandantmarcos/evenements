@@ -1,7 +1,6 @@
 package com.ldnr.evenements;
 
 import android.content.res.Resources;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +19,6 @@ public class ModifStagiaireActivity extends AppCompatActivity {
     private String action;
     //Strings permettant d'indiquer sur quels champs des erreurs ont été détectées
     private String erreurNom = "";
-    private String erreurPrenom = "";
     private String erreurAge = "";
     private String erreurMail = "";
     private String erreurTel= "";
@@ -34,7 +32,6 @@ public class ModifStagiaireActivity extends AppCompatActivity {
         //String correspondant aux clés des extras
         String EXTRA_IMAGE = "imageUrl";
         String EXTRA_NOM = "nom";
-        String EXTRA_PRENOM = "prenom";
         String EXTRA_AGE = "age";
         String EXTRA_MAIL = "mail";
         String EXTRA_TEL = "tel";
@@ -72,9 +69,6 @@ public class ModifStagiaireActivity extends AppCompatActivity {
             EditText viewNom = findViewById(R.id.modifStagiaireNom);
             viewNom.setText(extras.getString(EXTRA_NOM));
 
-            EditText viewPrenom = findViewById(R.id.modifStagiairePrenom);
-            viewPrenom.setText(extras.getString(EXTRA_PRENOM));
-
             EditText viewAge = findViewById(R.id.modifStagiaireAge);
             viewAge.setText(extras.getString(EXTRA_AGE));
 
@@ -111,9 +105,6 @@ public class ModifStagiaireActivity extends AppCompatActivity {
         EditText viewNom = findViewById(R.id.modifStagiaireNom);
         String nom = viewNom.getText().toString();
 
-        EditText viewPrenom = findViewById(R.id.modifStagiairePrenom);
-        String prenom = viewPrenom.getText().toString();
-
         EditText viewAge = findViewById(R.id.modifStagiaireAge);
         String age = viewAge.getText().toString();
 
@@ -136,7 +127,6 @@ public class ModifStagiaireActivity extends AppCompatActivity {
         // Je ne vérifie pas l'image, il y aura un image not found affiché si l'url n'est pas valide
         // Champ vide = erreur (sauf pour l'image)
         if(nom.trim().isEmpty()
-                || prenom.trim().isEmpty()
                 || age.trim().isEmpty()
                 || session.trim().isEmpty()
                 || mail.trim().isEmpty()
@@ -145,20 +135,25 @@ public class ModifStagiaireActivity extends AppCompatActivity {
         }
         else {
             // Vérification validité des données saisies
-            if (checkNom(nom) && checkPrenom(prenom) && checkAge(age) && checkMail(mail) && checkTel(tel) && checkSession(session)) {
+            if (checkNom(nom) && checkAge(age) && checkMail(mail) && checkTel(tel) && checkSession(session)) {
+                DatabaseHelper dbHelper = DatabaseHelper.getInstance(this);
                 /* ajout à la BDD/modification de la BDD et la fermeture de l'activité */
                 if(action.equals("modification")) {
 
                 }
                 else { // action = "inscription"
-
+                    Stagiaire stag = new Stagiaire();
+                    stag.setNom(nom);
+                    stag.setSession(session);
+                    stag.setFormation(formation);
+                    stag.setMail(mail);
+                    stag.setUrl(imageUrl);
                 }
             } else {
                 // Message d'erreur indiquant quels champs comportent des erreurs
                 Toast.makeText(this,
                         res.getString(R.string.modifStagiaireErreurChamp) + " "
                                 + erreurNom
-                                + erreurPrenom
                                 + erreurAge
                                 + erreurMail
                                 + erreurTel
@@ -178,20 +173,6 @@ public class ModifStagiaireActivity extends AppCompatActivity {
             return false;
         }
         erreurNom = "";
-        return true;
-    }
-
-    /**
-     * CheckPrenom vérifie que le prénom ne contienne pas de chiffre
-     * @param prenom prénom à vérifier
-     * @return boolean
-     */
-    private boolean checkPrenom(String prenom) {
-        if(Pattern.compile("[0-9]").matcher(prenom).find()) {
-            erreurPrenom = "Prenom ";
-            return false;
-        }
-        erreurPrenom = "";
         return true;
     }
 

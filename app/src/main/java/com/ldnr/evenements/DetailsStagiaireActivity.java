@@ -20,7 +20,6 @@ public class DetailsStagiaireActivity extends AppCompatActivity {
         // Ici les clés des extras contenant les informations
         String EXTRA_IMAGE = "imageUrl";
         String EXTRA_NOM = "nom";
-        String EXTRA_PRENOM = "prenom";
         String EXTRA_AGE = "age";
         String EXTRA_MAIL = "mail";
         String EXTRA_TEL = "tel";
@@ -38,9 +37,6 @@ public class DetailsStagiaireActivity extends AppCompatActivity {
 
             TextView viewNom = findViewById(R.id.detailsNom);
             viewNom.setText(extras.getString(EXTRA_NOM));
-
-            TextView viewPrenom = findViewById(R.id.detailsPrenom);
-            viewPrenom.setText(extras.getString(EXTRA_PRENOM));
 
             TextView viewAge = findViewById(R.id.detailsAge);
             viewAge.setText(extras.getString(EXTRA_AGE));

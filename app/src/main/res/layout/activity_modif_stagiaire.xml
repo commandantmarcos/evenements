@@ -38,26 +38,15 @@
         app:layout_constraintTop_toBottomOf="@+id/modifStagiaireTitle" />
 
     <TextView
-        android:id="@+id/modifStagiaireLabelPrenom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/detailsStagiaireLabelPrenom"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/modifStagiaireLabelNom" />
-
-    <TextView
         android:id="@+id/modifStagiaireLabelAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:textSize="20sp"
+        android:layout_marginTop="20dp"
         android:text="@string/detailsStagiaireLabelAge"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/modifStagiaireLabelPrenom" />
+        app:layout_constraintTop_toBottomOf="@+id/modifStagiaireLabelNom" />
 
     <TextView
         android:id="@+id/modifStagiaireLabelMail"
@@ -129,18 +118,6 @@
         app:layout_constraintTop_toBottomOf="@+id/modifStagiaireTitle" />
 
     <EditText
-        android:id="@+id/modifStagiairePrenom"
-        android:layout_width="233dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text=""
-        app:layout_constraintStart_toEndOf="@+id/modifStagiaireLabelPrenom"
-        app:layout_constraintTop_toBottomOf="@+id/modifStagiaireNom" />
-
-    <EditText
         android:id="@+id/modifStagiaireAge"
         android:layout_width="233dp"
         android:layout_height="wrap_content"
@@ -149,7 +126,7 @@
         android:inputType="text"
         android:text=""
         app:layout_constraintStart_toEndOf="@+id/modifStagiaireLabelAge"
-        app:layout_constraintTop_toBottomOf="@+id/modifStagiairePrenom" />
+        app:layout_constraintTop_toBottomOf="@+id/modifStagiaireNom" />
 
     <EditText
         android:id="@+id/modifStagiaireMail"
@@ -200,6 +177,7 @@
 
     <EditText
         android:id="@+id/modifStagiaireSession"
+        android:hint="année de départ"
         android:layout_width="232dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
