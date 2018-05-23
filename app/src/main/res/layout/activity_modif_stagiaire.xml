@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".ModifStagiaireActivity">
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ModifStagiaireActivity">
 
     <TextView
@@ -92,6 +99,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:textSize="20sp"
+        android:labelFor="@+id/modifStagiaireSession"
         android:text="@string/detailsStagiaireLabelSession"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/modifStagiaireLabelImage" />
@@ -103,6 +111,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:textSize="20sp"
+        android:labelFor="@+id/modifStagiaireFormation"
         android:text="@string/detailsStagiaireLabelFormation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/modifStagiaireLabelSession" />
@@ -111,72 +120,71 @@
         android:id="@+id/modifStagiaireNom"
         android:layout_width="233dp"
         android:layout_height="45dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="text"
         android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/modifStagiaireLabelNom"
         app:layout_constraintTop_toBottomOf="@+id/modifStagiaireTitle" />
 
     <EditText
         android:id="@+id/modifStagiairePrenom"
         android:layout_width="233dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/modifStagiaireLabelPrenom"
         app:layout_constraintTop_toBottomOf="@+id/modifStagiaireNom" />
 
     <EditText
         android:id="@+id/modifStagiaireAge"
         android:layout_width="233dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="72dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/modifStagiaireLabelAge"
         app:layout_constraintTop_toBottomOf="@+id/modifStagiairePrenom" />
 
     <EditText
         android:id="@+id/modifStagiaireMail"
         android:layout_width="233dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="6dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/modifStagiaireLabelMail"
         app:layout_constraintTop_toBottomOf="@+id/modifStagiaireAge" />
 
     <EditText
         android:id="@+id/modifStagiaireTel"
-        android:layout_width="233dp"
+        android:layout_width="233sp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/modifStagiaireLabelTel"
         app:layout_constraintTop_toBottomOf="@+id/modifStagiaireMail" />
 
     <EditText
         android:id="@+id/modifStagiaireImage"
-        android:layout_width="233dp"
+        android:layout_width="233sp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textUri"
         android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/modifStagiaireLabelImage"
         app:layout_constraintTop_toBottomOf="@+id/modifStagiaireTel" />
 
     <Button
@@ -184,9 +192,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="@string/modifStagiaireValidation"
+        android:layout_marginTop="8dp"
         android:onClick="onValidationClicked"
+        android:text="@string/modifStagiaireValidation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/modifStagiaireLabelFormation" />
+        app:layout_constraintTop_toBottomOf="@+id/modifStagiaireFormation" />
 
+    <EditText
+        android:id="@+id/modifStagiaireSession"
+        android:layout_width="232dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=""
+        app:layout_constraintStart_toEndOf="@+id/modifStagiaireLabelSession"
+        app:layout_constraintTop_toBottomOf="@+id/modifStagiaireImage" />
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/modifStagiaireFormation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/modifStagiaireLabelFormation"
+        app:layout_constraintTop_toBottomOf="@+id/modifStagiaireSession" />
 </android.support.constraint.ConstraintLayout>
+</ScrollView>

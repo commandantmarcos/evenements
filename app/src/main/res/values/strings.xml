@@ -12,4 +12,6 @@
     <string name="detailsStagiaireLabelSession">Session :</string>
     <string name="detailsStagiaireLabelFormation">Formation :</string>
     <string name="detailsStagiaireLabelImage">Image (url) :</string>
+    <string name="modifStagiaireErreurChampVide">Merci de remplir tous les champs</string>
+    <string name="modifStagiaireErreurChamp">Les champs suivants comportent des erreurs :</string>
 </resources>
