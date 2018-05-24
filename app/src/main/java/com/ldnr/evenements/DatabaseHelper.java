@@ -129,7 +129,17 @@
             }
             return liste;
         }
-
+        public ArrayList<Groupe> FindAllGroupe()
+        {
+            ArrayList<Groupe> liste = new ArrayList<>();
+            Cursor result = db.rawQuery("select groupe_id from " +
+                    "Groupe", null);
+            while (result.moveToNext())
+            {
+                liste.add(FindGroupe(result.getInt(result.getColumnIndex("groupe_id"))));
+            }
+            return liste;
+        }
 
         public ArrayList<Stagiaire> FindAllStagiaire()
         {
