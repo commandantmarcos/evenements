@@ -52,7 +52,7 @@ public class Groupe {
         this.formation = formation;
     }
 
-    public List<Stagiaire> getMembres() {
+    public ArrayList<Stagiaire> getMembres() {
         return membres;
     }
 

@@ -151,7 +151,7 @@ public class EventActivity extends AppCompatActivity {
     public void addGroup(){
         Resources resources = getResources();
         ArrayList<Stagiaire> stagiaires = new ArrayList();
-        stagiaires.add(new Stagiaire(1,"Hervé","","","","",""));
+        stagiaires.add(new Stagiaire(1,"Hervé","","","","mail",""));
         groupes.add(new Groupe(1, session,resources.getString(R.string.formation1),stagiaires));
         groupes.add(new Groupe(2, session,resources.getString(R.string.formation2),stagiaires));
         groupes.add(new Groupe(3, session,resources.getString(R.string.formation3),stagiaires));

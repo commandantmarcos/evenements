@@ -243,14 +243,17 @@ return result.getInt(result.getColumnIndex("groupe_id"));
                 groupe.setId(result.getInt(result.getColumnIndex("groupe_id")));
                 groupe.setFormation(result.getString(result.getColumnIndex("formation")));
                 groupe.setSession(result.getString(result.getColumnIndex("session")));
-                Cursor result2 = db.rawQuery("select stagiaire_id from " +
+                Cursor result2 = db.rawQuery("select * from " +
                         "Stagiaire" + " WHERE groupe_id = ?"  , new String[]{Integer.toString(id)});
                 while (result2.moveToNext())
                 {
                    int id_stag = result2.getInt(result2.getColumnIndex("stagiaire_id"));
                     liste.add(FindStagiaire(id_stag));
+                    Log.d("ADDGROUPe", "ADDED");
                 }
                 groupe.setMembres(liste);
+                Log.d(""+groupe.getMembres().size(),""+liste.size());
+                groupe.getMembres().size();
             }
             return groupe;
         }

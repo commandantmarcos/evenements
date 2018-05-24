@@ -17,6 +17,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.ldnr.evenements.MainActivity.getContext;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -113,9 +115,12 @@ public class GroupeFragment extends Fragment {
 
     public void onCellClicked(View view) {
         TextView textFormation = view.findViewById(R.id.formationGroupe);
+        TextView textSession = view.findViewById(R.id.sessionGroupe);
+        String session =  textSession.getText().toString();
         String formation = textFormation.getText().toString();
         Intent udIntent = new Intent(getActivity(), DetailGroupeActivity.class);
         udIntent.putExtra("formation",formation);
+        udIntent.putExtra("session", session);
         startActivity(udIntent);
     }
 
