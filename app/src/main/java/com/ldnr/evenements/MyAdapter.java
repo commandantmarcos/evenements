@@ -12,9 +12,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     public MyAdapter(List<Groupe> groupeList) {
         this.groupeList = groupeList;
     }
-
+    @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int itemType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.activity_event,viewGroup,false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.activity_group_view,viewGroup,false);
         return new MyViewHolder(view);
     }
 
@@ -26,6 +26,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return groupeList.size();
     }
 }
