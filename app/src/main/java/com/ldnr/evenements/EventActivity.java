@@ -24,7 +24,6 @@ public class EventActivity extends AppCompatActivity {
     private String event_location = "";/*Recupère la valeur contenue dans l'editText2*/
     private RecyclerView groupe_recyclerView;
     private boolean isChecked = false;
-    private int a = 0 ;
 
     private List<Groupe> groupes = new ArrayList<>();
     private ArrayList<Stagiaire> stagiaires = new ArrayList<>();
@@ -38,11 +37,12 @@ public class EventActivity extends AppCompatActivity {
         //Nos extras
         String EXTRA_TYPE = "type";
         String EXTRA_LOCATION = "location";
-
+        String EXTRA_HEURE = "heure";
 
         TextView title = findViewById(R.id.title_view);
         EditText type = findViewById(R.id.edit_type);
         EditText location = findViewById(R.id.edit_location);
+        EditText heure = findViewById(R.id.edit_heure);
 
         addGroup();//On ajoute les groupes à la liste
 
@@ -59,6 +59,7 @@ public class EventActivity extends AppCompatActivity {
             action = true;
             type.setText(bundle.getString(EXTRA_TYPE));
             location.setText(bundle.getString(EXTRA_LOCATION));
+            heure.setText(bundle.getString(EXTRA_HEURE));
         }
         else {
             title.setText((resources.getString(R.string.creer_evenement)));
@@ -67,20 +68,18 @@ public class EventActivity extends AppCompatActivity {
         }
     }
 
-    public void onConfirmButtonClicked(View view){
-        //valider donc insérer les données
-        //le but de ce bouton reste flou
-    }
-
     public void onAddButtonClicked(View view){
         EditText edit_type = findViewById(R.id.edit_type);
         EditText edit_location = findViewById(R.id.edit_location);
+        EditText edit_heure = findViewById(R.id.edit_heure);
+
         DatabaseHelper helper = DatabaseHelper.getInstance(this);
 
         String type =  edit_type.getText().toString();
         String location = edit_location.getText().toString();
+        String heure = edit_heure.getText().toString();
 
-        if (type.trim().isEmpty() || location.trim().isEmpty() || stagiaires.isEmpty()){
+        if (type.trim().isEmpty() || location.trim().isEmpty() || stagiaires.isEmpty() || heure.trim().isEmpty()){
             Toast.makeText(this,"Remplir les champs svp.",Toast.LENGTH_LONG).show();
             return;
         }
@@ -88,7 +87,7 @@ public class EventActivity extends AppCompatActivity {
         Evenement evenement = new Evenement();
         evenement.setType(type);
         evenement.setLieu(location);
-        evenement.setHeure("Douze heures");
+        evenement.setHeure(heure);
         evenement.setParticipants(stagiaires);
 
         if (action){
@@ -127,7 +126,7 @@ public class EventActivity extends AppCompatActivity {
 
             // A supprimer une fois la bdd en place
             groupe.getMembres().add(new Stagiaire(1, "Hervé", "formation", "2012", "tel", "mail", "url"));
-            // Seulement jusque la !
+        /* permet d'ajouter les stagiaires à la liste des stagiaires à inscrire à l'évènement ou de les en supprimer en cochant/décochant la case */
         if(!isChecked) {
             isChecked = true;
             stagiaires.addAll(groupe.getMembres());

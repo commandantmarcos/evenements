@@ -6,7 +6,6 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
 
-    tools:context="com.ldnr.evenements.GroupeFragment"
     app:cardBackgroundColor="@android:color/white"
     app:cardCornerRadius="5dp"
     app:cardElevation="2dp">
@@ -20,15 +19,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:onClick="onCellClicked">
+        android:orientation="vertical">
 
         <!-- Les CardView agissent comme des FrameLayout,
          pour avoir une organisation verticale nous devons
          donc rajouter un LinearLayout -->
 
         <TextView
-            android:id="@+id/sessionGroupe"
+            android:id="@+id/nomGroupe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:selectableItemBackground"
@@ -36,9 +34,9 @@
             android:padding="20dp"
             android:textColor="#333"
             android:textSize="18sp"
-            tools:text="session" />
+            tools:text="nom" />
         <TextView
-            android:id="@+id/formationGroupe"
+            android:id="@+id/mailGroupe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:selectableItemBackground"
@@ -46,18 +44,8 @@
             android:padding="20dp"
             android:textColor="#333"
             android:textSize="18sp"
-            tools:text="formation" />
+            tools:text="mail" />
 
-        <TextView
-            android:id="@+id/membresGroupe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?android:selectableItemBackground"
-            android:fontFamily="sans-serif"
-            android:padding="20dp"
-            android:textColor="#333"
-            android:textSize="18sp"
-            tools:text="membres" />
 
     </LinearLayout>
 

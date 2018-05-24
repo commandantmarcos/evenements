@@ -118,6 +118,11 @@
             }
             return event;
         }
+
+        /**
+         *
+         * @return Une liste d'Evenements
+         */
         public ArrayList<Evenement> FindAllEvenement()
         {
             ArrayList<Evenement> liste = new ArrayList<>();
@@ -129,6 +134,11 @@
             }
             return liste;
         }
+
+        /**
+         *
+         * @return Une liste contenant tous les groupes existants
+         */
         public ArrayList<Groupe> FindAllGroupe()
         {
             ArrayList<Groupe> liste = new ArrayList<>();
@@ -141,6 +151,10 @@
             return liste;
         }
 
+        /**
+         *
+         * @return Une liste de tous les stagiaires de la bdd
+         */
         public ArrayList<Stagiaire> FindAllStagiaire()
         {
             SQLiteDatabase db = this.getReadableDatabase();
@@ -163,7 +177,11 @@
             return liste;
         }
 
-
+        /**
+         *
+         * @param id L'id du stagiaire a recuperer
+         * @return un bean stagiaire complet correspondant
+         */
         public Stagiaire FindStagiaire(int id) {
             SQLiteDatabase db = this.getReadableDatabase();
             Stagiaire stag = new Stagiaire();
