@@ -63,18 +63,18 @@ public class EvenementFragment extends Fragment {
 
     public List<Evenement> createListElements(){
 
-        List<Stagiaire> participants = new ArrayList<>();
-        participants.add(new Stagiaire(0,"Jean", "JAVA EE", new Date(2018, 05,15), "0707070708", "jean@gmail.com", "https://disney-planet.fr/wp-content/uploads/2015/09/bernard-personnage-aventure-bernard-bianca-04.jpg"));
-        participants.add(new Stagiaire(0,"Jean", "JAVA EE", new Date(2018, 05,15), "0707070708", "jean@gmail.com", "https://disney-planet.fr/wp-content/uploads/2015/09/bernard-personnage-aventure-bernard-bianca-04.jpg"));
+        ArrayList<Stagiaire> participants = new ArrayList<>();
+        participants.add(new Stagiaire(0,"Jean", "JAVA EE", "2017-2018", "0707070708", "jean@gmail.com", "https://disney-planet.fr/wp-content/uploads/2015/09/bernard-personnage-aventure-bernard-bianca-04.jpg"));
+        participants.add(new Stagiaire(0,"Jean", "JAVA EE", "2017-2018", "0707070708", "jean@gmail.com", "https://disney-planet.fr/wp-content/uploads/2015/09/bernard-personnage-aventure-bernard-bianca-04.jpg"));
 
         List<Evenement> evenements = new ArrayList<>();
 
         Date date = new Date(2018, 05, 25);
-        evenements.add(new Evenement(0,"Repas","LDNR - 44 rue de L'Occitanie - Labège, 31670", participants, date));
-        evenements.add(new Evenement(0,"Fete1","5 Boulevard Diderot 75012 PARIS", participants, date));
-        evenements.add(new Evenement(0,"Fete2","1 place d'ItalieHôtel de Ville 75634 PARIS CEDEX 13", participants, date));
-        evenements.add(new Evenement(0,"Fete3","58, allées de Bellefontaine 31100 Toulouse ", participants, date));
-        evenements.add(new Evenement(0,"Fete4","5, avenue des Ecoles Jules-Julien 31400 ", participants, date));
+        evenements.add(new Evenement(0,"Repas","LDNR - 44 rue de L'Occitanie - Labège, 31670", participants, "2018, 05, 25"));
+        evenements.add(new Evenement(0,"Fete1","5 Boulevard Diderot 75012 PARIS", participants, "2018, 05, 25"));
+        evenements.add(new Evenement(0,"Fete2","1 place d'ItalieHôtel de Ville 75634 PARIS CEDEX 13", participants, "2018, 05, 25"));
+        evenements.add(new Evenement(0,"Fete3","58, allées de Bellefontaine 31100 Toulouse ", participants, "2018, 05, 25"));
+        evenements.add(new Evenement(0,"Fete4","5, avenue des Ecoles Jules-Julien 31400 ", participants, "2018, 05, 25"));
 
         return  evenements;
     }

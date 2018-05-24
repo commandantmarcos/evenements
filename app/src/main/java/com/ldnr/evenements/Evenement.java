@@ -1,29 +1,37 @@
 package com.ldnr.evenements;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
-public class Evenement{
-
+public class Evenement {
     private int id;
 
+
     private String type;
-
     private String lieu;
+    public String getHeure() {
+        return heure;
+    }
 
-    private List<Stagiaire> participants;
+    public void setHeure(String heure) {
+        this.heure = heure;
+    }
 
-    private Date date;
+    private String heure;
+    private ArrayList<Stagiaire> participants;
 
 
-    public Evenement(int id, String type, String lieu, List<Stagiaire> participants, Date date) {
+    public Evenement(int id, String type, String lieu, ArrayList<Stagiaire> participants, String heure) {
         this.id = id;
         this.type = type;
         this.lieu = lieu;
         this.participants = participants;
-        this.date = date;
+        this.heure = heure;
     }
+
+    public Evenement()
+    { }
 
     public int getId() {
         return id;
@@ -53,13 +61,7 @@ public class Evenement{
         return participants;
     }
 
-    public void setParticipants(List<Stagiaire> participants) {
+    public void setParticipants(ArrayList<Stagiaire> participants) {
         this.participants = participants;
     }
-
-    public Date getDate() { return date; }
-
-    public void setDate(Date date) { this.date = date; }
-
 }
-
