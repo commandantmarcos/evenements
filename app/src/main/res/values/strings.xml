@@ -18,6 +18,9 @@
     <string name="ajouterEvenement">Ajouter</string>
     <string name="confirmerEvenement">Confirmer</string>
     <string name="creer_evenement">Créer un événement</string>
-
-
+    <string name="formation1">Administrateur(trice) Réseaux Junior</string>
+    <string name="formation2">Concepteur(trice) d\'Applications Mobiles</string>
+    <string name="formation3">Developpeur(se) C/C++/JAVA - Région</string>
+    <string name="formation4">Developpeur(se) C/C++/JAVA - Toulouse</string>
+    <string name="formation5">Maintenance Support Réseaux</string>
 </resources>

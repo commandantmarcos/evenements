@@ -60,12 +60,17 @@ public class ModifStagiaireActivity extends AppCompatActivity {
         ArrayAdapter<String> adapterFormation = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item);
         adapterFormation.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        //Ici il faut affecter les noms des formations depuis la base de données
-        adapterFormation.addAll("Developpeur(se) logiciel C/C++/JAVA","hello","world");
+        //Ici on a simplement stocké les noms de formation dans les ressources
+        adapterFormation.add(res.getString(R.string.formation1));
+        adapterFormation.add(res.getString(R.string.formation2));
+        adapterFormation.add(res.getString(R.string.formation3));
+        adapterFormation.add(res.getString(R.string.formation4));
+        adapterFormation.add(res.getString(R.string.formation5));
         spinFormation.setAdapter(adapterFormation);
 
         // Si la page est en modification, on récupère les données du stagiaire à modifier
         if(action.equals("Modification")) {
+
             EditText viewNom = findViewById(R.id.modifStagiaireNom);
             viewNom.setText(extras.getString(EXTRA_NOM));
 
@@ -148,6 +153,9 @@ public class ModifStagiaireActivity extends AppCompatActivity {
                     stag.setFormation(formation);
                     stag.setMail(mail);
                     stag.setUrl(imageUrl);
+
+                    dbHelper.InsertStagiaire(stag);
+                    finish();
                 }
             } else {
                 // Message d'erreur indiquant quels champs comportent des erreurs
