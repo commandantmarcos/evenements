@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -54,29 +55,22 @@ public class EvenementFragment extends Fragment {
         }else{
             recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
         }
+        createListElements();
 
-        List<Evenement> evenements = createListElements();
-        recyclerView.setAdapter(new EvenementRecyclerviewAdapter(evenements));
+        recyclerView.setAdapter(new EvenementRecyclerviewAdapter(createListElements()));
 
         return view;
     }
 
-    public List<Evenement> createListElements(){
+    public ArrayList<Evenement> createListElements(){
+        DatabaseHelper db = DatabaseHelper.getInstance(getContext());
 
-        ArrayList<Stagiaire> participants = new ArrayList<>();
-        participants.add(new Stagiaire(0,"Jean", "JAVA EE", "2017-2018", "0707070708", "jean@gmail.com", "https://disney-planet.fr/wp-content/uploads/2015/09/bernard-personnage-aventure-bernard-bianca-04.jpg"));
-        participants.add(new Stagiaire(0,"Jean", "JAVA EE", "2017-2018", "0707070708", "jean@gmail.com", "https://disney-planet.fr/wp-content/uploads/2015/09/bernard-personnage-aventure-bernard-bianca-04.jpg"));
+        db.InsertStagiaire(new Stagiaire(0,"Bernard", "JAVA EE", "2017-2018", "0703390708", "jean@gmail.com", "https://disney-planet.fr/wp-content/uploads/2015/09/bernard-personnage-aventure-bernard-bianca-04.jpg"));
+        db.InsertStagiaire(new Stagiaire(0,"Bianca", "JAVA EE", "2017-2018", "0637065508", "jean@gmail.com", "https://www.google.fr/search?q=bernard+et+bianca&source=lnms&tbm=isch&sa=X&ved=0ahUKEwia1Z_CtZ7bAhWEBiwKHSdoDwoQ_AUICigB&biw=1920&bih=1014#imgrc=i-BuPkCIo9gHjM:"));
 
-        List<Evenement> evenements = new ArrayList<>();
+        db.InsertEvenement(new Evenement(1,"type", "lieu", db.FindAllStagiaire(), "heure"));
 
-        Date date = new Date(2018, 05, 25);
-        evenements.add(new Evenement(0,"Repas","LDNR - 44 rue de L'Occitanie - Labège, 31670", participants, "2018, 05, 25"));
-        evenements.add(new Evenement(0,"Fete1","5 Boulevard Diderot 75012 PARIS", participants, "2018, 05, 25"));
-        evenements.add(new Evenement(0,"Fete2","1 place d'ItalieHôtel de Ville 75634 PARIS CEDEX 13", participants, "2018, 05, 25"));
-        evenements.add(new Evenement(0,"Fete3","58, allées de Bellefontaine 31100 Toulouse ", participants, "2018, 05, 25"));
-        evenements.add(new Evenement(0,"Fete4","5, avenue des Ecoles Jules-Julien 31400 ", participants, "2018, 05, 25"));
-
-        return  evenements;
+        return db.FindAllEvenement();
     }
 
 }

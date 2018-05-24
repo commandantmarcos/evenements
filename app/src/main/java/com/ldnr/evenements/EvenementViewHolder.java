@@ -24,8 +24,8 @@ public class EvenementViewHolder extends RecyclerView.ViewHolder{
 
         String nbr_participants = Integer.toString(evenement.getParticipants().size());
 
-        date.setText(evenement.getHeure());
-        participants.setText(nbr_participants);
-        lieu.setText(evenement.getLieu().toString());
+        date.setText("Date : "+evenement.getHeure());
+        participants.setText(nbr_participants+" Participants");
+        lieu.setText("Adresse : "+evenement.getLieu().toString());
     }
 }
