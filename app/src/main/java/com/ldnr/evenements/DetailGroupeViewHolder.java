@@ -11,17 +11,17 @@ public class DetailGroupeViewHolder extends RecyclerView.ViewHolder{
 
     // Here itemView is referring to one CardView
     public DetailGroupeViewHolder(View itemView) {
-        super(itemView);
-
-        nom = itemView.findViewById(R.id.nomGroupe);
-        mail = itemView.findViewById(R.id.sessionGroupe);
+super(itemView);
+      //  View superview = itemView.findViewById(android.R.id.content);
+        nom = itemView.getRootView().findViewById(R.id.nomGroupe);
+        mail = itemView.getRootView().findViewById(R.id.sessionGroupe);
     }
 
     // Function that allows to bind an Object 'Groupe' to a CardView
     public void bind(Stagiaire stagiaire){
 
-        nom.setText(stagiaire.getNom().toString());
-        mail.setText(stagiaire.getMail().toString());
+       // nom.setText(stagiaire.getNom().toString());
+     //   mail.setText(stagiaire.getMail().toString());
 
     }
 }
