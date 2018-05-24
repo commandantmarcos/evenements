@@ -21,8 +21,11 @@ public class EvenementViewHolder extends RecyclerView.ViewHolder{
 
     // Function that allows to bind an Object 'Evenement' to a CardView
     public void bind(Evenement evenement){
+
+        String nbr_participants = Integer.toString(evenement.getParticipants().size());
+
         date.setText(evenement.getDate().toString());
-        participants.setText("ffffff");
+        participants.setText(nbr_participants);
         lieu.setText(evenement.getLieu().toString());
     }
 }

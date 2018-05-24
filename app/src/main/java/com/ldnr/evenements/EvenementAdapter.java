@@ -22,9 +22,9 @@ public class EvenementAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position){
-            case 0: return(com.example.silver.myproject.EvenementFragment.newInstance());
-            case 1: return(com.example.silver.myproject.GroupeFragment.newInstance());
-            default: return(com.example.silver.myproject.EvenementFragment.newInstance());
+            case 0: return(com.ldnr.evenements.EvenementFragment.newInstance());
+            case 1: return(com.ldnr.evenements.GroupeFragment.newInstance());
+            default: return(com.ldnr.evenements.EvenementFragment.newInstance());
         }
     }
 

@@ -69,13 +69,12 @@ public class EvenementFragment extends Fragment {
 
         List<Evenement> evenements = new ArrayList<>();
 
-        GregorianCalendar date = new GregorianCalendar();
-        date.set(2018, 05, 25);
-        evenements.add(new Evenement(0,"Repas","LDNR", participants, date));
-        evenements.add(new Evenement(0,"Fete1","LDNR", participants, date));
-        evenements.add(new Evenement(0,"Fete2","LDNR", participants, date));
-        evenements.add(new Evenement(0,"Fete3","LDNR", participants, date));
-        evenements.add(new Evenement(0,"Fete4","LDNR", participants, date));
+        Date date = new Date(2018, 05, 25);
+        evenements.add(new Evenement(0,"Repas","LDNR - 44 rue de L'Occitanie - Labège, 31670", participants, date));
+        evenements.add(new Evenement(0,"Fete1","5 Boulevard Diderot 75012 PARIS", participants, date));
+        evenements.add(new Evenement(0,"Fete2","1 place d'ItalieHôtel de Ville 75634 PARIS CEDEX 13", participants, date));
+        evenements.add(new Evenement(0,"Fete3","58, allées de Bellefontaine 31100 Toulouse ", participants, date));
+        evenements.add(new Evenement(0,"Fete4","5, avenue des Ecoles Jules-Julien 31400 ", participants, date));
 
         return  evenements;
     }

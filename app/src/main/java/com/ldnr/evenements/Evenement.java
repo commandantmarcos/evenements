@@ -1,5 +1,6 @@
 package com.ldnr.evenements;
 
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -13,10 +14,10 @@ public class Evenement{
 
     private List<Stagiaire> participants;
 
-    private GregorianCalendar date;
+    private Date date;
 
 
-    public Evenement(int id, String type, String lieu, List<Stagiaire> participants, GregorianCalendar date) {
+    public Evenement(int id, String type, String lieu, List<Stagiaire> participants, Date date) {
         this.id = id;
         this.type = type;
         this.lieu = lieu;
@@ -56,9 +57,9 @@ public class Evenement{
         this.participants = participants;
     }
 
-    public GregorianCalendar getDate() { return date; }
+    public Date getDate() { return date; }
 
-    public void setDate(GregorianCalendar date) { this.date = date; }
+    public void setDate(Date date) { this.date = date; }
 
 }
 
