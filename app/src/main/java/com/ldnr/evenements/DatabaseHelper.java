@@ -147,7 +147,7 @@
                 stag.setSession(result.getString(result.getColumnIndex("session")));
                 stag.setTelephone(result.getString(result.getColumnIndex("telephone")));
                 stag.setUrl(result.getString(result.getColumnIndex("url")));
-                stag.setId_groupe(result.getInt(result.getColumnIndex("id_groupe")));
+                stag.setId_groupe(result.getInt(result.getColumnIndex("groupe_id")));
             liste.add(stag);
             }
             return liste;
