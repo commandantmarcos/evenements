@@ -68,13 +68,7 @@ public class EvenementFragment extends Fragment {
         db.InsertStagiaire(new Stagiaire(0,"Bernard", "JAVA EE", "2017-2018", "0703390708", "jean@gmail.com", "https://disney-planet.fr/wp-content/uploads/2015/09/bernard-personnage-aventure-bernard-bianca-04.jpg"));
         db.InsertStagiaire(new Stagiaire(0,"Bianca", "JAVA EE", "2017-2018", "0637065508", "jean@gmail.com", "https://www.google.fr/search?q=bernard+et+bianca&source=lnms&tbm=isch&sa=X&ved=0ahUKEwia1Z_CtZ7bAhWEBiwKHSdoDwoQ_AUICigB&biw=1920&bih=1014#imgrc=i-BuPkCIo9gHjM:"));
 
-        ArrayList<Stagiaire> stagiaires = new ArrayList<>();
-        ArrayList<Stagiaire> stagiairess = new ArrayList<>();
-
-        stagiairess = db.FindAllStagiaire();
-
-        stagiaires.add(new Stagiaire(0,"Bernard", "JAVA EE", "2017-2018", "0703390708", "jean@gmail.com", "https://disney-planet.fr/wp-content/uploads/2015/09/bernard-personnage-aventure-bernard-bianca-04.jpg"));
-        db.InsertEvenement(new Evenement(1,"type", "lieu", stagiaires, "heure"));
+        db.InsertEvenement(new Evenement(1,"type", "lieu", db.FindAllStagiaire(), "heure"));
 
         return db.FindAllEvenement();
     }

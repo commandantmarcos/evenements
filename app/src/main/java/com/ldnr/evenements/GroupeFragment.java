@@ -56,21 +56,25 @@ public class GroupeFragment extends Fragment {
             recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
         }
 
-        List<Groupe> groupe = createListGroupes();
+        ArrayList<Groupe> groupe = createListGroupes();
         recyclerView.setAdapter(new GroupeRecyclerViewAdapter(groupe));
 
         return view;
     }
 
-    public List<Groupe> createListGroupes(){
 
+    public ArrayList<Groupe> createListGroupes(){
+
+        DatabaseHelper db = DatabaseHelper.getInstance(getContext());
         ArrayList<Stagiaire> membres = new ArrayList<>();
-        membres.add(new Stagiaire(0,"Jean", "JAVA EE", "2017-2018", "0707070708", "jean@gmail.com", "https://disney-planet.fr/wp-content/uploads/2015/09/bernard-personnage-aventure-bernard-bianca-04.jpg"));
-        membres.add(new Stagiaire(0,"Jean", "JAVA EE", "2017-2018", "0707070708", "jean@gmail.com", "https://disney-planet.fr/wp-content/uploads/2015/09/bernard-personnage-aventure-bernard-bianca-04.jpg"));
 
-        List<Groupe> groupes = new ArrayList<>();
 
-        res = getResources();
+        db.InsertStagiaire(new Stagiaire(0,"Bersxxnard", "JAVA EE", "20017-20018", "070003390708", "jeaoon@gmail.com", "https://disney-planet.fr/wp-content/uploads/2015/09/bernard-personnage-aventure-bernard-bianca-04.jpg"));
+        db.InsertStagiaire(new Stagiaire(0,"Bianxxsca", "JAVA EE", "20017-20018", "063706005508", "jeanoo@gmail.com", "https://www.google.fr/search?q=bernard+et+bianca&source=lnms&tbm=isch&sa=X&ved=0ahUKEwia1Z_CtZ7bAhWEBiwKHSdoDwoQ_AUICigB&biw=1920&bih=1014#imgrc=i-BuPkCIo9gHjM:"));
+
+        membres = db.FindAllStagiaire();
+
+        Resources res = getResources();
 
         String formation1 = res.getString(R.string.formation1);
         String formation2 = res.getString(R.string.formation2);
@@ -78,12 +82,14 @@ public class GroupeFragment extends Fragment {
         String formation4 = res.getString(R.string.formation4);
         String formation5 = res.getString(R.string.formation5);
 
-        groupes.add(new Groupe(0, "2018, 05, 25", formation1, membres));
-        groupes.add(new Groupe(0, "2017, 09, 20", formation2, membres));
-        groupes.add(new Groupe(0, "2018, 01, 15", formation3, membres));
-        groupes.add(new Groupe(0, "2017, 11, 5", formation4, membres));
-        groupes.add(new Groupe(0, "2018, 03, 15", formation5, membres));
-        return  groupes;
+
+        db.InsertGroupe(new Groupe(0, "2018, 05, 25", formation1, membres));
+        db.InsertGroupe(new Groupe(0, "2017, 09, 20", formation2, membres));
+        db.InsertGroupe(new Groupe(0, "2018, 01, 15", formation3, membres));
+        db.InsertGroupe(new Groupe(0, "2017, 11, 5", formation4, membres));
+        db.InsertGroupe(new Groupe(0, "2018, 03, 15", formation5, membres));
+
+        return db.FindAllGroupe();
     }
 
 }

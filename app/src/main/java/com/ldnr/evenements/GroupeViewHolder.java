@@ -23,9 +23,9 @@ public class GroupeViewHolder extends RecyclerView.ViewHolder{
     public void bind(Groupe groupe){
 
         String nbr_membres = Integer.toString(groupe.getMembres().size());
-        session.setText(groupe.getSession().toString());
-        formation.setText(groupe.getFormation().toString());
-        membres.setText(nbr_membres);
+        session.setText("Date : "+groupe.getSession().toString());
+        formation.setText("Formation : "+groupe.getFormation().toString());
+        membres.setText(nbr_membres+" Participants");
 
     }
 }
