@@ -2,10 +2,10 @@ package com.ldnr.evenements;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ImageView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
 
 public class DetailGroupeActivity extends AppCompatActivity {
 
@@ -19,6 +19,11 @@ public class DetailGroupeActivity extends AppCompatActivity {
         String EXTRA_SESSION = "date de formation";
         String EXTRA_FORMATION = "nom de la formation";
 
+
+        ListView list = findViewById(R.id.affichageDetailGroupe);
+
+        // On instancie un adaptateur avec notre liste , notre layout et l'id de notre TextView
+        ArrayAdapter<String> tableau = new ArrayAdapter<>(list.getContext(), R.layout.activity_detail_groupe, R.id.affichageDetailGroupe);
 
 
         // Récupération des extras
