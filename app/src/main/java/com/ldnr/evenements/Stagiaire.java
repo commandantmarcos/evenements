@@ -10,6 +10,9 @@ public class Stagiaire {
     private String telephone;
     private String mail;
     private String url;
+    private int id_groupe;
+
+
 
     public Stagiaire(int id, String nom, String formation, String session, String telephone, String mail, String url) {
         this.id = id;
@@ -24,6 +27,14 @@ public class Stagiaire {
     {
 
     }
+    public int getId_groupe() {
+        return id_groupe;
+    }
+
+    public void setId_groupe(int id_groupe) {
+        this.id_groupe = id_groupe;
+    }
+
     public int getId() {
         return id;
     }

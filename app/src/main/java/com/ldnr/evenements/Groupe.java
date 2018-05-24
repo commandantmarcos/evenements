@@ -1,6 +1,5 @@
 package com.ldnr.evenements;
 
-import java.util.Date;
 import java.util.List;
 
 public class Groupe {
@@ -9,18 +8,22 @@ public class Groupe {
 
 
     private int id;
-    private Date session;
+    private String session;
     private String formation;
 
 
 
     private List<Stagiaire> membres;
 
-    public Groupe(int id, Date session, String formation, List<Stagiaire> membres) {
+    public Groupe(int id, String session, String formation, List<Stagiaire> membres) {
         this.id = id;
         this.session = session;
         this.formation = formation;
         this.membres = membres;
+    }
+    public Groupe()
+    {
+
     }
 
     public int getId() {
@@ -31,11 +34,11 @@ public class Groupe {
         this.id = id;
     }
 
-    public Date getSession() {
+    public String getSession() {
         return session;
     }
 
-    public void setSession(Date session) {
+    public void setSession(String session) {
         this.session = session;
     }
 

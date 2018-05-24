@@ -1,5 +1,6 @@
 package com.ldnr.evenements;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Evenement {
@@ -9,10 +10,10 @@ public class Evenement {
     private String type;
     private String lieu;
 
-    private List<Stagiaire> participants;
+    private ArrayList<Stagiaire> participants;
 
 
-    public Evenement(int id, String type, String lieu, List<Stagiaire> participants) {
+    public Evenement(int id, String type, String lieu, ArrayList<Stagiaire> participants) {
         this.id = id;
         this.type = type;
         this.lieu = lieu;
@@ -47,7 +48,7 @@ public class Evenement {
         return participants;
     }
 
-    public void setParticipants(List<Stagiaire> participants) {
+    public void setParticipants(ArrayList<Stagiaire> participants) {
         this.participants = participants;
     }
 }
