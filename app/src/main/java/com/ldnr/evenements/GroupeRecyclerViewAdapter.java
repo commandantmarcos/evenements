@@ -37,4 +37,6 @@ public class GroupeRecyclerViewAdapter extends RecyclerView.Adapter<GroupeViewHo
     public int getItemCount() {
         return list.size();
     }
+
+
 }

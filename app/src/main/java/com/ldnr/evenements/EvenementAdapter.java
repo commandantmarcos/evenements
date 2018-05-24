@@ -3,6 +3,7 @@ package com.ldnr.evenements;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.View;
 
 
 /**
@@ -23,7 +24,11 @@ public class EvenementAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0: return(com.ldnr.evenements.EvenementFragment.newInstance());
-            case 1: return(com.ldnr.evenements.GroupeFragment.newInstance());
+            case 1 :
+                    GroupeFragment frag = com.ldnr.evenements.GroupeFragment.newInstance();
+                    View view = frag.getView();
+                    frag.onCellClicked(view);
+                return frag;
             default: return(com.ldnr.evenements.EvenementFragment.newInstance());
         }
     }
