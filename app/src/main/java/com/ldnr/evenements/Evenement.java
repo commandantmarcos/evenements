@@ -1,81 +1,64 @@
-//package com.ldnr.evenements;
+package com.ldnr.evenements;
 
-//import android.os.Bundle;
-//import android.support.v4.app.FragmentActivity;
-//import android.support.v4.view.ViewPager;
+import java.util.GregorianCalendar;
+import java.util.List;
 
-//import java.sql.Timestamp;
-//import java.util.List;
+public class Evenement{
 
-//public class Evenement extends FragmentActivity{
+    private int id;
 
-//    private int id;
+    private String type;
 
-//    private String type;
+    private String lieu;
 
-//    private String lieu;
+    private List<Stagiaire> participants;
 
-//    private Timestamp date;
+    private GregorianCalendar date;
 
-//    private List<Stagiaire> participants;
 
-//    EvenementAdapter evenementAdapter;
-//    ViewPager viewPager;
+    public Evenement(int id, String type, String lieu, List<Stagiaire> participants, GregorianCalendar date) {
+        this.id = id;
+        this.type = type;
+        this.lieu = lieu;
+        this.participants = participants;
+        this.date = date;
+    }
 
-//    @Override
-//    protected void onCreate(Bundle davedInstanceState) {
+    public int getId() {
+        return id;
+    }
 
-//        super.onCreate(davedInstanceState);
-//        setContentView(R.layout.activity_evenement);
+    public void setId(int id) {
+        this.id = id;
+    }
 
-//        evenementAdapter = new EvenementAdapter(getSupportFragmentManager());
+    public String getType() {
+        return type;
+    }
 
-//        viewPager = findViewById(R.id.pager);
-//        viewPager.setAdapter(evenementAdapter);
+    public void setType(String type) {
+        this.type = type;
+    }
 
-//    }
+    public String getLieu() {
+        return lieu;
+    }
 
-//    public Evenement(int id, String type, String lieu, List<Stagiaire> participants) {
-//        this.id = id;
-//        this.type = type;
-//        this.lieu = lieu;
-//        this.participants = participants;
-//    }
+    public void setLieu(String lieu) {
+        this.lieu = lieu;
+    }
 
-//    public int getId() {
-//        return id;
-//    }
+    public List<Stagiaire> getParticipants() {
+        return participants;
+    }
 
-//    public void setId(int id) {
-//        this.id = id;
-//    }
+    public void setParticipants(List<Stagiaire> participants) {
+        this.participants = participants;
+    }
 
-//    public String getType() {
-//        return type;
-//    }
+    public GregorianCalendar getDate() { return date; }
 
-//    public void setType(String type) {
-//        this.type = type;
-//    }
+    public void setDate(GregorianCalendar date) { this.date = date; }
 
-//    public String getLieu() {
-//        return lieu;
-//    }
+}
 
-//    public void setLieu(String lieu) {
-//        this.lieu = lieu;
-//    }
-
-//    public List<Stagiaire> getParticipants() {
-//        return participants;
-//    }
-
-//    public void setParticipants(List<Stagiaire> participants) {
-//        this.participants = participants;
-//    }
-
-//    public Timestamp getDate() { return date; }
-
-//    public void setDate(Timestamp date) { this.date = date; }
-
-//}
