@@ -6,10 +6,11 @@
     android:id="@+id/rootview"
     tools:context=".EvenementFragment">
 
-    <TextView
-        android:id="@+id/textview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text=" Scnd Fragment" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewGroupe"
+        android:layout_width="479dp"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
