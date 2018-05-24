@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Events</string>
+    <string name="modifStagiaireTitre">Trainee modification</string>
+    <string name="modifStagiaireValidation">Confirm</string>
+    <string name="inscriptionStagiaireTitre">Inscribe a trainee</string>
+    <string name="detailsStagiaireTitre">Trainee details</string>
+    <string name="detailsStagiaireLabelNom">Name :</string>
+    <string name="detailsStagiaireLabelAge">Age :</string>
+    <string name="detailsStagiaireLabelMail">Mail :</string>
+    <string name="detailsStagiaireLabelTel">Phone :</string>
+    <string name="detailsStagiaireLabelSession">Session :</string>
+    <string name="detailsStagiaireLabelFormation">Training :</string>
+    <string name="detailsStagiaireLabelImage">Picture (url) :</string>
+    <string name="eventType">Type</string>
+    <string name="eventLocation">Location</string>
+    <string name="ajouterEvenement">Add</string>
+    <string name="confirmerEvenement">Confirm</string>
+    <string name="creer_evenement">Create an event</string>
+    <string name="modifier_evenement">Modify an event</string>
+    <string name="modifStagiaireErreurChamp">The following fields contains errors:</string>
+    <string name="modifStagiaireErreurChampVide">Please, fill all text fields</string>
+</resources>
