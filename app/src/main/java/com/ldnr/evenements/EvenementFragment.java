@@ -75,6 +75,11 @@ public class EvenementFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        recyclerView.setAdapter(new EvenementRecyclerviewAdapter(createListElements()));
+    }
 
     public ArrayList<Evenement> createListElements(){
         DatabaseHelper db = DatabaseHelper.getInstance(getContext());
