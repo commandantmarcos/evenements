@@ -12,20 +12,19 @@ import com.squareup.picasso.Picasso;
  */
 public class DetailsStagiaireActivity extends AppCompatActivity {
 
-    // Ici les clés des extras contenant les informations
-    private String EXTRA_IMAGE = "imageUrl";
-    private String EXTRA_NOM = "nom";
-    private String EXTRA_PRENOM = "prenom";
-    private String EXTRA_AGE = "age";
-    private String EXTRA_MAIL = "mail";
-    private String EXTRA_TEL = "tel";
-    private String EXTRA_SESSION = "session";
-    private String EXTRA_FORMATION = "formation";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_stagiaire);
+
+        // Ici les clés des extras contenant les informations
+        String EXTRA_IMAGE = "imageUrl";
+        String EXTRA_NOM = "nom";
+        String EXTRA_AGE = "age";
+        String EXTRA_MAIL = "mail";
+        String EXTRA_TEL = "tel";
+        String EXTRA_SESSION = "session";
+        String EXTRA_FORMATION = "formation";
 
         // Récupération des extras
         Bundle extras = getIntent().getExtras();
@@ -38,9 +37,6 @@ public class DetailsStagiaireActivity extends AppCompatActivity {
 
             TextView viewNom = findViewById(R.id.detailsNom);
             viewNom.setText(extras.getString(EXTRA_NOM));
-
-            TextView viewPrenom = findViewById(R.id.detailsPrenom);
-            viewPrenom.setText(extras.getString(EXTRA_PRENOM));
 
             TextView viewAge = findViewById(R.id.detailsAge);
             viewAge.setText(extras.getString(EXTRA_AGE));
