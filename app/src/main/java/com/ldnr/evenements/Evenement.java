@@ -1,6 +1,7 @@
 package com.ldnr.evenements;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Evenement {
@@ -10,6 +11,15 @@ public class Evenement {
     private String type;
     private String lieu;
 
+    public String getHeure() {
+        return heure;
+    }
+
+    public void setHeure(String heure) {
+        this.heure = heure;
+    }
+
+    private String heure;
     private ArrayList<Stagiaire> participants;
 
 
@@ -19,6 +29,8 @@ public class Evenement {
         this.lieu = lieu;
         this.participants = participants;
     }
+    public Evenement()
+    { }
 
     public int getId() {
         return id;

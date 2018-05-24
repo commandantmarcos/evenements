@@ -1,5 +1,7 @@
 package com.ldnr.evenements;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Groupe {
@@ -13,9 +15,9 @@ public class Groupe {
 
 
 
-    private List<Stagiaire> membres;
+    private ArrayList<Stagiaire> membres;
 
-    public Groupe(int id, String session, String formation, List<Stagiaire> membres) {
+    public Groupe(int id, String session, String formation, ArrayList<Stagiaire> membres) {
         this.id = id;
         this.session = session;
         this.formation = formation;
@@ -54,7 +56,7 @@ public class Groupe {
         return membres;
     }
 
-    public void setMembres(List<Stagiaire> membres) {
+    public void setMembres(ArrayList<Stagiaire> membres) {
         this.membres = membres;
     }
 }

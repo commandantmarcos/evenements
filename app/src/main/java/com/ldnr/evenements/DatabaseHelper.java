@@ -38,7 +38,7 @@
 
             contentValues.put("type", input.getType());
             contentValues.put("lieu", input.getLieu());
-
+            contentValues.put("heure", input.getHeure());
             id_event = (int) db.insert(
                     "Evenement"
                     , null, contentValues);
@@ -51,6 +51,45 @@
             }
             return id_event;
         }
+        public Evenement FindEvenement(int id)
+        {
+            SQLiteDatabase db = this.getReadableDatabase();
+           Evenement event = new Evenement();
+           ArrayList<Stagiaire> liste = new ArrayList<Stagiaire>();
+            Cursor result = db.rawQuery("select * from " +
+                    "Evenement" + " WHERE evenement_id = " + id  , null);
+
+            if (result.moveToFirst()) {
+
+
+                event.setId(result.getInt(result.getColumnIndex("event_id")));
+                event.setLieu(result.getString(result.getColumnIndex("Lieu")));
+                event.setType(result.getString(result.getColumnIndex("Type")));
+                event.setHeure(result.getString(result.getColumnIndex("Heure")));
+                Cursor result2 = db.rawQuery("select * from " +
+                        "Participation" + " WHERE evenement_id = " + id  , null);
+                while (result2.moveToNext())
+                {
+
+                    liste.add(FindStagiaire(result2.getInt(result.getColumnIndex("stagiaire_id"))));
+
+            }
+            event.setParticipants(liste);
+            }
+            return event;
+        }
+        public ArrayList<Evenement> FindAllEvenement()
+        {
+            ArrayList<Evenement> liste = new ArrayList<>();
+            Cursor result = db.rawQuery("select evenement_id from " +
+                    "Evenement", null);
+            while (result.moveToNext())
+            {
+                liste.add(FindEvenement(result.getInt(result.getColumnIndex("evenement_id"))));
+            }
+            return liste;
+        }
+
 
         public ArrayList<Stagiaire> FindAllStagiaire()
         {
@@ -87,7 +126,7 @@
         stag.setMail(result.getString(result.getColumnIndex("mail")));
         stag.setSession(result.getString(result.getColumnIndex("session")));
         stag.setUrl(result.getString(result.getColumnIndex("url")));
-        stag.setId_groupe(result.getInt(result.getColumnIndex("id_groupe")));
+        stag.setId_groupe(result.getInt(result.getColumnIndex("groupe_id")));
 
     }
          return stag;
@@ -238,7 +277,7 @@ return result.getInt(result.getColumnIndex("groupe_id"));
                             "lieu" +
                             "text, " +
                             "heure" +
-                            "datetime" +
+                            "text" +
 
                             " ) "
             );
