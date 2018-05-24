@@ -182,7 +182,7 @@
         public int FindIdGroupe(String session, String formation) {
             SQLiteDatabase db = this.getReadableDatabase();
             Groupe groupe= new Groupe();
-            Cursor result = db.rawQuery("select * from Groupe WHERE session = " + "'"+   session + "'"  + " AND  formation = " + "'" +formation + "'", null);
+            Cursor result = db.rawQuery("select * from Groupe WHERE session = ? AND  formation = ?",new String[]{session,formation});
             if (result.moveToFirst()) {
 
 return result.getInt(result.getColumnIndex("groupe_id"));
@@ -214,7 +214,7 @@ return result.getInt(result.getColumnIndex("groupe_id"));
                 groupe.setFormation(result.getString(result.getColumnIndex("formation")));
                 groupe.setSession(result.getString(result.getColumnIndex("session")));
                 Cursor result2 = db.rawQuery("select stagiaire_id from " +
-                        "Stagiaire" + "WHERE id_groupe = " + id  , null);
+                        "Stagiaire" + " WHERE groupe_id = ?"  , new String[]{Integer.toString(id)});
                 while (result2.moveToNext())
                 {
                    int id_stag = result2.getInt(result2.getColumnIndex("stagiaire_id"));
