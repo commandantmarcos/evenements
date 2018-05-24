@@ -23,6 +23,8 @@ public class EventActivity extends AppCompatActivity {
     private String event_type = "";/*Recupère la valeur contenue dans l'editText*/
     private String event_location = "";/*Recupère la valeur contenue dans l'editText2*/
     private RecyclerView groupe_recyclerView;
+    private boolean isChecked = false;
+    private int a = 0 ;
 
     private List<Groupe> groupes = new ArrayList<>();
     private ArrayList<Stagiaire> stagiaires = new ArrayList<>();
@@ -91,9 +93,11 @@ public class EventActivity extends AppCompatActivity {
 
         if (action){
             helper.updateEvenement(evenement);
+            finish();
         }
         else {
             helper.InsertEvenement(evenement);
+            finish();
         }
         //controler la tentative d'update ou d'insertion ici ?
 
@@ -102,27 +106,44 @@ public class EventActivity extends AppCompatActivity {
     }
 
     public void onCheckBoxClicked(View view){
-        String titleGroup;
-        String sessionGroup;
-        int id_groupe;
-        DatabaseHelper helper = DatabaseHelper.getInstance(this);
-        Groupe groupe = new Groupe();
 
-        //On récupère le nom de la formation...
-        TextView groupView = view.findViewById(R.id.group_view);
-        Toast.makeText(this,groupView.getText().toString(),Toast.LENGTH_LONG).show();
-        titleGroup = groupView.getText().toString();
+            String titleGroup;
+            String sessionGroup;
+            int id_groupe;
+            DatabaseHelper helper = DatabaseHelper.getInstance(this);
+            Groupe groupe = new Groupe();
 
-        //...ainsi que la sesion
-        TextView sessionView = view.findViewById(R.id.sessionView);
-        sessionGroup = sessionView.getText().toString();
+            //On récupère le nom de la formation...
+            TextView groupView = view.findViewById(R.id.group_view);
+            //Toast.makeText(this, groupView.getText().toString(), Toast.LENGTH_LONG).show();
+            titleGroup = groupView.getText().toString();
 
-        //id_groupe = helper.FindIdGroupe(sessionGroup, titleGroup);
-        //groupe = helper.FindGroupe(id_groupe);
-        //stagiaires.addAll(groupe.getMembres());
+            //...ainsi que la sesion
+            TextView sessionView = view.findViewById(R.id.sessionView);
+            sessionGroup = sessionView.getText().toString();
 
-        //Toast.makeText(this,stagiaires.get(0).getNom(),Toast.LENGTH_LONG).show();
+            id_groupe = helper.FindIdGroupe(sessionGroup, titleGroup);
+            groupe = helper.FindGroupe(id_groupe);
 
+            // A supprimer une fois la bdd en place
+            groupe.getMembres().add(new Stagiaire(1, "Hervé", "formation", "2012", "tel", "mail", "url"));
+            // Seulement jusque la !
+        if(!isChecked) {
+            isChecked = true;
+            stagiaires.addAll(groupe.getMembres());
+            //Toast.makeText(this,stagiaires.get(0).getNom(),Toast.LENGTH_LONG).show();
+        }
+        else {
+            isChecked = false;
+            for(int i = 0 ; i < stagiaires.size() ; i++ ) {
+                for(int j = 0 ; j < groupe.getMembres().size() ; j++) {
+                    if(stagiaires.get(i).getId() == groupe.getMembres().get(j).getId()) {
+                        stagiaires.remove(i);
+                    }
+                }
+            }
+                //Toast.makeText(this, Integer.toString(stagiaires.size()), Toast.LENGTH_LONG).show();
+        }
         //Modifie l'état actuel de la checkBox
         CheckBox checkBox = view.findViewById(R.id.checkBox);
         checkBox.setChecked((checkBox.isChecked()) ? false : true);//Si coché elle sera décochée sinon l'inverse
