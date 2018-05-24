@@ -10,7 +10,6 @@ public class Evenement {
 
     private String type;
     private String lieu;
-
     public String getHeure() {
         return heure;
     }
@@ -56,7 +55,7 @@ public class Evenement {
         this.lieu = lieu;
     }
 
-    public List<Stagiaire> getParticipants() {
+    public ArrayList<Stagiaire> getParticipants() {
         return participants;
     }
 

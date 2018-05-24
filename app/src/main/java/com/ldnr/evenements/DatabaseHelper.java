@@ -30,6 +30,7 @@
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
             db = this.getWritableDatabase();
         }
+
         public int InsertEvenement(Evenement input)
         {
             SQLiteDatabase db = this.getReadableDatabase();
@@ -51,6 +52,45 @@
             }
             return id_event;
         }
+
+        /**
+         * Met a jour un evenement et sa liste de participants
+         * @param input L'evenement a mettre a jour (doit contenir l'id)
+         * @return
+         */
+        public boolean updateEvenement(Evenement input)
+        {
+            ContentValues cv = new ContentValues();
+            cv.put("Type",input.getType());
+            cv.put("Lieu",input.getLieu());
+            cv.put("Heure",input.getHeure());
+            db.delete("Participant", "evenement_id = " + input.getId(), null); // On purge la table des participants de cet evenement
+
+            for (Stagiaire stag : input.getParticipants())
+            {
+                db.insert("Participant", "evenement_id = " + input.getId() + " AND stagiaire_id = " + stag.getId(), null); // On rajoute ceux qui correspondent
+
+            }
+            db.update("Evenement", cv, "evenement_id = "+ "'" + input.getId() +"'", null ); // On met a jour l'evenement proprement dit
+
+            return true;
+        }
+
+        /**
+         * Purge un evenement par ID
+         * @param id
+         */
+        public void deleteEvenement(int id)
+        {
+            db.delete("Evenement", "evenement_id = " + id, null);
+            db.delete("Participant", "evenement_id = " + id, null);
+        }
+
+        public void deleteStagiaire(int id)
+        {
+            db.delete("Stagiaire", "stagiaire_id = " + id, null);
+
+        }
         public Evenement FindEvenement(int id)
         {
             SQLiteDatabase db = this.getReadableDatabase();
@@ -62,10 +102,10 @@
             if (result.moveToFirst()) {
 
 
-                event.setId(result.getInt(result.getColumnIndex("event_id")));
-                event.setLieu(result.getString(result.getColumnIndex("Lieu")));
-                event.setType(result.getString(result.getColumnIndex("Type")));
-                event.setHeure(result.getString(result.getColumnIndex("Heure")));
+                event.setId(result.getInt(result.getColumnIndex("evenement_id")));
+                event.setLieu(result.getString(result.getColumnIndex("lieu")));
+                event.setType(result.getString(result.getColumnIndex("type")));
+                event.setHeure(result.getString(result.getColumnIndex("heure")));
                 Cursor result2 = db.rawQuery("select * from " +
                         "Participation" + " WHERE evenement_id = " + id  , null);
                 while (result2.moveToNext())
@@ -166,7 +206,7 @@ return result.getInt(result.getColumnIndex("groupe_id"));
             SQLiteDatabase db = this.getReadableDatabase();
             Groupe groupe= new Groupe();
             Cursor result = db.rawQuery("select * from " +
-                    "Groupe" + " WHERE groupe_id = " + id  , null);
+                    "Groupe" + " WHERE groupe_id = " + id + ""  , null);
             if (result.moveToFirst()) {
 
                 groupe.setId(result.getInt(result.getColumnIndex("groupe_id")));
@@ -257,7 +297,7 @@ return result.getInt(result.getColumnIndex("groupe_id"));
                     "create table " +
                             "Groupe"
                             + " ( " +
-                            "groupe_id"
+                            "groupe_id "
                             + "integer primary key, " +
                             " formation " +
                             "text, " +
@@ -270,13 +310,13 @@ return result.getInt(result.getColumnIndex("groupe_id"));
                     "create table " +
                             "Evenement"
                             + " ( " +
-                            "evenement_id"
+                            "evenement_id "
                             + "integer primary key, " +
-                            "type" +
+                            "type " +
                             "text, " +
-                            "lieu" +
+                            "lieu " +
                             "text, " +
-                            "heure" +
+                            "heure " +
                             "text" +
 
                             " ) "
