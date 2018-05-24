@@ -145,6 +145,7 @@
                 stag.setFormation(result.getString(result.getColumnIndex("formation")));
                 stag.setMail(result.getString(result.getColumnIndex("mail")));
                 stag.setSession(result.getString(result.getColumnIndex("session")));
+                stag.setTelephone(result.getString(result.getColumnIndex("telephone")));
                 stag.setUrl(result.getString(result.getColumnIndex("url")));
                 stag.setId_groupe(result.getInt(result.getColumnIndex("id_groupe")));
             liste.add(stag);
@@ -165,6 +166,7 @@
         stag.setFormation(result.getString(result.getColumnIndex("formation")));
         stag.setMail(result.getString(result.getColumnIndex("mail")));
         stag.setSession(result.getString(result.getColumnIndex("session")));
+        stag.setTelephone(result.getString(result.getColumnIndex("telephone")));
         stag.setUrl(result.getString(result.getColumnIndex("url")));
         stag.setId_groupe(result.getInt(result.getColumnIndex("groupe_id")));
 
@@ -243,6 +245,7 @@ return result.getInt(result.getColumnIndex("groupe_id"));
             contentValues.put("session", input.getSession());
             contentValues.put("formation", input.getFormation());
             contentValues.put("mail", input.getMail());
+            contentValues.put("telephone", input.getTelephone());
             contentValues.put("url", input.getUrl());
             contentValues.put("groupe_id", FindIdGroupe(input.getSession(), input.getFormation()));
             db.insert(
@@ -256,6 +259,7 @@ return result.getInt(result.getColumnIndex("groupe_id"));
             cv.put("session",input.getSession());
             cv.put("formation",input.getFormation());
             cv.put("mail",input.getMail());
+            cv.put("telephone", input.getTelephone());
             cv.put("url",input.getUrl());
             db.update("Stagiaire", cv, "stagiaire_id = "+ "'" + input.getId() +"'", null );
             return true;
