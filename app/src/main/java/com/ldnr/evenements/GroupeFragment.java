@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ public class GroupeFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
+    private GroupeRecyclerViewAdapter adapter;
     private Resources res;
     private Button button;
 
@@ -50,6 +52,8 @@ public class GroupeFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerViewGroupe);
         layoutManager =  new LinearLayoutManager(getActivity());
+
+        recyclerView.isClickable();
 
         //Getting device orientation
         int displayMode = getResources().getConfiguration().orientation;
@@ -103,6 +107,15 @@ public class GroupeFragment extends Fragment {
         db.InsertGroupe(new Groupe(0, "2018, 03, 15", formation5, membres));
 
         return db.FindAllGroupe();
+    }
+
+
+    public void onCellClicked(View view) {
+        TextView textFormation = view.findViewById(R.id.formationGroupe);
+        String formation = textFormation.getText().toString();
+        Intent udIntent = new Intent(getActivity(), DetailGroupeActivity.class);
+        udIntent.putExtra("formation",formation);
+        startActivity(udIntent);
     }
 
 }
