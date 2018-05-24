@@ -22,12 +22,14 @@ public class Evenement {
     private ArrayList<Stagiaire> participants;
 
 
-    public Evenement(int id, String type, String lieu, ArrayList<Stagiaire> participants) {
+    public Evenement(int id, String type, String lieu, ArrayList<Stagiaire> participants, String heure) {
         this.id = id;
         this.type = type;
         this.lieu = lieu;
         this.participants = participants;
+        this.heure = heure;
     }
+
     public Evenement()
     { }
 
