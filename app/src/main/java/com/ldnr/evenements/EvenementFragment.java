@@ -1,5 +1,6 @@
 package com.ldnr.evenements;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,6 +25,7 @@ public class EvenementFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
+    private Button button;
 
     public EvenementFragment() {
         // Required empty public constructor
@@ -43,6 +46,16 @@ public class EvenementFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_evenement, container, false);
 
+        button = view.findViewById(R.id.button);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent createEvent = new Intent(getActivity(), EventActivity.class);
+                startActivity(createEvent);
+            }
+        });
+
         recyclerView = view.findViewById(R.id.recyclerView);
         layoutManager =  new LinearLayoutManager(getActivity());
 
@@ -62,6 +75,7 @@ public class EvenementFragment extends Fragment {
         return view;
     }
 
+
     public ArrayList<Evenement> createListElements(){
         DatabaseHelper db = DatabaseHelper.getInstance(getContext());
 
@@ -72,6 +86,5 @@ public class EvenementFragment extends Fragment {
 
         return db.FindAllEvenement();
     }
-
 }
 
