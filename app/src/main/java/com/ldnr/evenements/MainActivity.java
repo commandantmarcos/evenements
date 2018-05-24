@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static Context context;
 
-    private GroupeFragment frag;
+    public static GroupeFragment frag;
 
     public  static Context getContext(){ return  context;}
 

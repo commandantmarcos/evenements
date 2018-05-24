@@ -28,6 +28,7 @@ public class GroupeFragment extends Fragment {
     private GroupeRecyclerViewAdapter adapter;
     private Resources res;
     private Button button;
+    private View view;
 
     public GroupeFragment() {
         // Required empty public constructor
@@ -46,7 +47,7 @@ public class GroupeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_groupe, container, false);
+         view = inflater.inflate(R.layout.fragment_groupe, container, false);
 
         button = view.findViewById(R.id.button);
 

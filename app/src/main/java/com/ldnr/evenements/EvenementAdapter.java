@@ -25,10 +25,9 @@ public class EvenementAdapter extends FragmentPagerAdapter {
         switch (position){
             case 0: return(com.ldnr.evenements.EvenementFragment.newInstance());
             case 1 :
-                    GroupeFragment frag = com.ldnr.evenements.GroupeFragment.newInstance();
-                    View view = frag.getView();
-                    frag.onCellClicked(view);
-                return frag;
+                MainActivity.frag = com.ldnr.evenements.GroupeFragment.newInstance();
+
+                return MainActivity.frag;
             default: return(com.ldnr.evenements.EvenementFragment.newInstance());
         }
     }
