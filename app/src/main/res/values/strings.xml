@@ -13,4 +13,11 @@
     <string name="detailsStagiaireLabelImage">Image (url) :</string>
     <string name="modifStagiaireErreurChampVide">Merci de remplir tous les champs</string>
     <string name="modifStagiaireErreurChamp">Les champs suivants comportent des erreurs :</string>
+    <string name="eventType">Type</string>
+    <string name="eventLocation">Lieu</string>
+    <string name="ajouterEvenement">Ajouter</string>
+    <string name="confirmerEvenement">Confirmer</string>
+    <string name="creer_evenement">Créer un événement</string>
+
+
 </resources>
