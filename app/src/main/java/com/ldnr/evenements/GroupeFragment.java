@@ -1,6 +1,7 @@
 package com.ldnr.evenements;
 
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,7 @@ public class GroupeFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
+    private GroupeRecyclerViewAdapter adapter;
     private Resources res;
 
     public GroupeFragment() {
@@ -45,6 +48,8 @@ public class GroupeFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerViewGroupe);
         layoutManager =  new LinearLayoutManager(getActivity());
+
+        recyclerView.isClickable();
 
         //Getting device orientation
         int displayMode = getResources().getConfiguration().orientation;
@@ -84,6 +89,15 @@ public class GroupeFragment extends Fragment {
         groupes.add(new Groupe(0, "2017, 11, 5", formation4, membres));
         groupes.add(new Groupe(0, "2018, 03, 15", formation5, membres));
         return  groupes;
+    }
+
+
+    public void onCellClicked(View view) {
+        TextView textFormation = view.findViewById(R.id.formationGroupe);
+        String formation = textFormation.getText().toString();
+        Intent udIntent = new Intent(getActivity(), DetailGroupeActivity.class);
+        udIntent.putExtra("formation",formation);
+        startActivity(udIntent);
     }
 
 }
