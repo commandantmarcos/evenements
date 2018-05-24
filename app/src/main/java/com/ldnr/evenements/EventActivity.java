@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,24 +17,22 @@ public class EventActivity extends AppCompatActivity {
     private String event_type;/*Recupère la valeur contenue dans l'editText*/
     private String event_location;/*Recupère la valeur contenue dans l'editText2*/
     //private DataBaseHelper helper;
-    private RecyclerView list_group;
+    private RecyclerView groupe_recyclerView;
 
-    private List<Groupe> test_list = new ArrayList();
-    private List<Stagiaire> stagiaireList = new ArrayList<>();
-    private Date session;
-    private Groupe dev = new Groupe(1, session,"Developpeur.se logiciel C.C++.Java", stagiaireList);
+    private List<Groupe> groupes = new ArrayList<>();
+    private List<Stagiaire> stagiaires = new ArrayList<>();
+    private String session = Integer.toString(LocalDateTime.now().getYear());
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
 
-       list_group = findViewById(R.id.list_grp);
-       list_group.setLayoutManager(new LinearLayoutManager(this));
+        addGroup();//On ajoute les groupes à la liste
 
-       for(int i = 0; i<7 ; i++){
-           test_list.add(dev);
-       }
-       list_group.setAdapter(new MyAdapter (test_list));//on récupère la liste de groupe
+       groupe_recyclerView = findViewById(R.id.recyclerView);
+       groupe_recyclerView.setLayoutManager(new LinearLayoutManager(this));
+       groupe_recyclerView.setAdapter(new MyAdapter(groupes));//on récupère la liste de groupe
     }
 
     public void onConfirmButtonClicked(View view){
@@ -45,8 +44,12 @@ public class EventActivity extends AppCompatActivity {
         //controler la tentative d'update ou d'insertion ici ?
 
         //Insert à l'événement les groupes cochés
-        //listView doit contenir TOUT les groupes existants et il faudra les cocher
-        //utiliser une recyclerView et une checkBox
+        //Utiliser une recyclerView et une checkBox
+    }
+
+    public void addGroup(){
+        //groupes.add(new Groupe(1, session,"Développeur.se C.C++.Java - en salle", stagiaires));
+        //groupes.add(new Groupe(2, session,"Développeur.se C.C++.Java - à distance", stagiaires));
     }
 
 }
